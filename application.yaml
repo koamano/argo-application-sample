@@ -1,0 +1,23 @@
+apiVersion: argoproject.io/v1alpha1
+kind: Application
+metadata:
+  name: sonar-application
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/koamano/argo-application-sample.git
+    targetRevision: HEAD
+    pathAttribute: dev
+  destination: 
+    server: https://kubernetes.default.svc
+    namepace: sonar
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace = true
+
+    automated: 
+      selfHeal: true
+      prune: true
