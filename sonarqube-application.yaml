@@ -8,11 +8,14 @@ spec:
 
   source:
     repoURL: https://github.com/koamano/argo-application-sample.git
-    targetRevision: HEAD
-    path: dev
+    targetRevision: main
+    chart: sonarqube
+    # helm:
+    #   values:
+    #     - replicaCount: 1
   destination: 
     server: https://kubernetes.default.svc
-    namespace: sonar
+    namespace: sonarqube-dev
 
   syncPolicy:
     syncOptions:

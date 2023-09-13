@@ -1,0 +1,2 @@
+sonarqube:
+  replica: 1
