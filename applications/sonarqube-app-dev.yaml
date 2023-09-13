@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sonar-subchart-application-dev
+  name: sonarqube-app-dev
   namespace: argocd
 spec:
   project: default
