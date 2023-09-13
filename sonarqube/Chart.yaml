@@ -5,5 +5,5 @@ version: 0.0.1
 apiVersion: 1.0.0
 dependencies:
 - name: sonarqube
-  version: main
+  version: master
   repository: https://SonarSource.github.io/helm-chart-sonarqube
