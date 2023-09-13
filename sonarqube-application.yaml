@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/koamano/argo-application-sample.git
     targetRevision: main
-    chart: sonarqube
+    chart: sonar-subchart
     # helm:
     #   values:
     #     - replicaCount: 1
