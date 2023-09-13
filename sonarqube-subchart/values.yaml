@@ -1,2 +1,3 @@
 sonarqube:
-  replica: 1
+  nginx:
+    enabled: true
