@@ -8,11 +8,8 @@ spec:
 
   source:
     repoURL: https://github.com/koamano/argo-application-sample.git
-    targetRevision: main
-    chart: sonar-subchart
-    # helm:
-    #   values:
-    #     - replicaCount: 1
+    targetRevision: HEAD
+    path: sonarqube-subchart
   destination: 
     server: https://kubernetes.default.svc
     namespace: sonarqube-dev
