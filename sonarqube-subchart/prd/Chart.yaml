@@ -1,0 +1,9 @@
+apiVersion: v2
+name: sonar-subchart
+typ: application
+version: 0.0.1
+apiVersion: 1.0.0
+dependencies:
+- name: sonarqube
+  version: ~8
+  repository: https://SonarSource.github.io/helm-chart-sonarqube
