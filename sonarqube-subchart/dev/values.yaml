@@ -7,7 +7,7 @@ sonarqube:
     hosts:
       - name: sonarqube.dev.kosukeamano.com   
         # Different clouds or configurations might need /* as the default path
-        path: /
+        path: /*
         # For additional control over serviceName and servicePort
         # serviceName: someService
         # servicePort: somePort
