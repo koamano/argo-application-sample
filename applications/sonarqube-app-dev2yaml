@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sonarqube-app-dev
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/koamano/argo-application-sample.git
+    targetRevision: HEAD
+    path: sonarqube-subchart/dev
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: sonarqube-dev
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated: 
+      selfHeal: true
+      prune: true
