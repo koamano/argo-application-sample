@@ -1,6 +1,6 @@
-sonarqube:
-  nginx:
-    enabled: true
+# sonarqube:
+#   nginx:
+#     enabled: true
   # ingress:
   #   enabled: true
   #   # Used to create an Ingress record.
