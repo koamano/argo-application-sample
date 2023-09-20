@@ -1,8 +1,8 @@
-# sonarqube:
-#   nginx:
-#     enabled: true
-  # ingress:
-  #   enabled: true
+sonarqube:
+  nginx:
+    enabled: true
+  ingress:
+    enabled: true
   #   # Used to create an Ingress record.
   #   hosts:
   #     - name: sonarqube.dev.kosukeaws.com   
