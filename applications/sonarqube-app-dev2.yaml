@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sonarqube-app-dev
+  name: sonarqube-app-dev-2
   namespace: argocd
 spec:
   project: default
@@ -12,7 +12,7 @@ spec:
     path: sonarqube-subchart/dev
   destination: 
     server: https://kubernetes.default.svc
-    namespace: sonarqube-dev
+    namespace: sonarqube-dev-2
 
   syncPolicy:
     syncOptions:
