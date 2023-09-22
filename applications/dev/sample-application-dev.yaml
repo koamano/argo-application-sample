@@ -1,23 +1,24 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sonarqube-app-dev
+  name: sample-application-dev
   namespace: argocd
 spec:
   project: default
 
   source:
-    repoURL: https://github.com/koamano/argo-application-sample.git
+    # repoURL: https://github.com/koamano/argo-application-sample.git
+    repoURL: https://github.com/koamano/calc-sample.git
     targetRevision: HEAD
-    path: sonarqube-subchart/dev
+    path: sample/dev
   destination: 
     server: https://kubernetes.default.svc
-    namespace: sonarqube-dev
+    namespace: sample
 
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
 
-    automated: 
+    automated:
       selfHeal: true
       prune: true
