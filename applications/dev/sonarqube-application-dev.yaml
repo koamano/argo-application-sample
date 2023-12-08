@@ -12,7 +12,7 @@ spec:
     path: sonarqube-subchart/dev
   destination: 
     server: https://kubernetes.default.svc
-    namespace: sonarqube-dev
+    namespace: sonarqube
 
   syncPolicy:
     syncOptions:

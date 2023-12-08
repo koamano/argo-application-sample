@@ -1,24 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sample-application-dev
+  name: artifactory-application-dev
   namespace: argocd
 spec:
   project: default
 
   source:
-    # repoURL: https://github.com/koamano/argo-application-sample.git
-    repoURL: https://github.com/koamano/calc-sample.git
+    repoURL: https://github.com/koamano/artifactory-sample.git
     targetRevision: HEAD
-    path: overlays/dev
+    path: artifactory-subchart/dev
   destination: 
     server: https://kubernetes.default.svc
-    namespace: sample
+    namespace: artifactory
 
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
 
-    automated:
+    automated: 
       selfHeal: true
       prune: true
