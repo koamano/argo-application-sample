@@ -7,7 +7,6 @@ spec:
   project: default
 
   source:
-    # repoURL: https://github.com/koamano/argo-application-sample.git
     repoURL: https://github.com/koamano/calc-sample.git
     targetRevision: HEAD
     path: sample/dev
