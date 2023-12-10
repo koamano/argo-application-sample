@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-apps-dev
+  namespace: argocd
+spec:
+  project: default
+  source:
+    # repoURL: https://github.com/koamano/argo-application-sample.git
+    repoURL: https://github.com/koamano/argo-application-sample.git
+    targetRevision: HEAD
+    path: applications/dev
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: argocd

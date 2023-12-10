@@ -6,25 +6,29 @@ spec:
   generators:
   - list:
       elements:
-      - appName: sample-application-dev
-        namespace: sample
+      - cluster: in-cluster
+        url: https://kubernetes.default.svc
+        # values:
+        #   - appName: sample-application-dev
+        #   - namespace: sample
+        #   - repoURL: https://github.com/koamano/calc-sample.git
+        #   - path: overlays/dev        
   template:
     metadata:
-      name: "{{appName}}"
-      annotations:
-        argocd.argoproj.io/manifest-generate-paths: ".;.."
+      name: sample-application-dev
     spec:
       project: default
       source:
         repoURL: https://github.com/koamano/calc-sample.git
         targetRevision: HEAD
-        path: sample/dev
+        path: overlays/dev 
       destination:
-        name: https://kubernetes.default.svc
-        namespace: "{{namespace}}"
+        server: '{{url}}'
+        namespace: sample
       syncPolicy:
         automated:
           prune: true
           selfHeal: true
         syncOptions:
           - CreateNamespace=true  
+
