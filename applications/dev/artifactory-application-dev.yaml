@@ -8,7 +8,7 @@ spec:
 
   source:
     repoURL: https://github.com/koamano/artifactory-sample.git
-    targetRevision: HEAD
+    targetRevision: main
     path: artifactory-subchart/dev
   destination: 
     server: https://kubernetes.default.svc

@@ -8,7 +8,7 @@ spec:
 
   source:
     repoURL: https://github.com/koamano/sonarqube-sample.git
-    targetRevision: HEAD
+    targetRevision: main
     path: sonarqube-subchart/dev
   destination: 
     server: https://kubernetes.default.svc
