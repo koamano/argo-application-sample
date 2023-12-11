@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sonarqube-app-prd
+  name: sonarqube-application-prod
   namespace: argocd
 spec:
   project: default
 
   source:
-    repoURL: https://github.com/koamano/argo-application-sample.git
-    targetRevision: HEAD
+    repoURL: https://github.com/koamano/sonarqube-sample.git
+    targetRevision: main
     path: sonarqube-subchart/prd
   destination: 
     server: https://kubernetes.default.svc
-    namespace: sonarqube-prd
+    namespace: sonarqube
 
   syncPolicy:
     syncOptions:
