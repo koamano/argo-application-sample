@@ -63,6 +63,9 @@ copy EXTERNAL-IP of myapp-service and paste into CNAM record
 ### Test
 Change replica number in calc-sample overlay
 
+### Destroy cluster
+eksctl delete cluster --name koamano-test
+
 # Appendix
 ### Install each application separately from argo-application-sample
 k apply -f ./applications/dev/sonarqube-application-dev.yaml
