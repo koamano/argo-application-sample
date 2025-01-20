@@ -2,7 +2,15 @@
 Follow the instructions below to install on ArgoCD on your cluster and use the App of App pattern to deploy multiple applications on your AKS cluster. Nginx Ingress Controller (not the "official" Kubernetes ingress controller) is installed and used to route requests to all of the applications. 
 
 ## Pre-Requisites
-Deploy an AKS cluster
+Deploy an AKS or EKS K8s cluster
+### For EKS
+eksctl can be used for simple creation
+
+eksctl create cluster \
+> --name koamano-test \
+> --region us-east-1 \
+> --nodegroup-name linux-nodes \
+> --node-type t3.medium
 
 ## Repo Dependencies
 The App and App pattern uses three repositories
@@ -14,7 +22,7 @@ Subchart using Sonarqube Helm Chart. [Link to Repo](https://github.com/koamano/s
 Sample calculator application with Front end and API, deployed with Kustomization. [Link to Repo](https://github.com/koamano/calc-sample)
 
 ## Set up Steps
-### Get Credentials for the deployed AKS cluster
+### Get Credentials for the deployed AKS cluster (already set up if eksctl used for EKS)
 az aks get-credentials --resource-group dev-aks-argo-sample --name aks-argo-cluster
 
 ### Create namespace for ArgoCD
@@ -44,7 +52,16 @@ The Nginx Plus image must be used. There are three options to use the Nginx Plus
 [Link to more information]https://docs.nginx.com/nginx-ingress-controller/installation/installing-nic/installation-with-helm/
 
 ### Apply App of App application
+Clone argo-application-sample repo and navigate root.
 kubectl apply -f ./app-of-apps-dev.yaml
+
+### Set CNAM in route53
+kubectl get service -n sample
+
+copy EXTERNAL-IP of myapp-service and paste into CNAM record
+
+### Test
+Change replica number in calc-sample overlay
 
 # Appendix
 ### Install each application separately from argo-application-sample
